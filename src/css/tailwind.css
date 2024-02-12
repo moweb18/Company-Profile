@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: 'Quicksand', sans-serif;
+		scroll-behavior: smooth;
+	}
+}
+
+@layer components {
+	.header-mobile {
+		@apply fixed -left-full top-[91px] bg-slate-900 text-white px-7 py-7 w-full opacity-0 duration-500 ease-in-out delay-150 bottom-0 text-2xl;
+	}
+
+	.header-desktop {
+		@apply md:static md:left-auto md:top-auto md:bg-white md:text-slate-900 md:p-0 md:w-auto md:opacity-100 md:transition-none md:text-base;
+	}
+
+	.active-category-project {
+		@apply bg-blue-700 text-white;
+	}
+
+	.nonactive-category-project {
+		@apply bg-slate-100 text-blue-700 hover:bg-blue-100 duration-150 ease-in;
+	}
+}
+
+@layer utilities {
+	#hamburger-menu.active > div:first-child {
+		transform: rotate(135deg) translate3d(5px, -5px, 0);
+		background-color: rgb(15, 23, 42);
+	}
+
+	#hamburger-menu.active > div:nth-child(2) {
+		transform: translateX(60px);
+	}
+
+	#hamburger-menu.active > div:last-child {
+		transform: rotate(-135deg) translate3d(5.8px, 5.8px, 0);
+		background-color: rgb(15, 23, 42);
+	}
+
+	#submenu.active {
+		left: 0;
+		opacity: 1;
+	}
+
+	#index-0::after {
+		background-color: rgb(236 72 153);
+	}
+
+	#index-1::after {
+		background-color: rgb(14 165 233);
+	}
+
+	#index-2::after {
+		background-color: rgb(251 191 36);
+	}
+
+	#index-3::after {
+		background-color: rgb(139 92 246);
+	}
+
+	#projects > div:nth-child(2) {
+		flex-direction: row-reverse;
+		justify-content: start;
+	}
+
+	#projects > div:nth-child(2) > div {
+		text-align: left;
+		left: 0;
+	}
+
+	#projects > div:nth-child(2) ul {
+		justify-content: start;
+	}
+
+	.line-clamp-none {
+		-webkit-line-clamp: unset !important;
+	}
+
+	.pagination-active {
+		@apply bg-sky-200;
+	}
+
+	.pagination-nonactive {
+		@apply hover:bg-sky-100;
+	}
+
+	.pagination-disabled {
+		@apply border-slate-300 cursor-not-allowed;
+	}
+
+	.pagination-disabled svg path {
+		@apply fill-slate-400;
+	}
+}
+
+@media (min-width: 1024px) {
+	#projects > div:nth-child(2) img {
+		position: relative;
+		left: -7rem;
+	}
+}
